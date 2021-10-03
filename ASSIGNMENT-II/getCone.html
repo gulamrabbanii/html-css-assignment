@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Area & Volume of Cone</title>
+    <style>
+      .cone-field {
+        margin-top: 25px;
+        border: 2px gray solid;
+      }
+
+      .input-field {
+        margin-left: 40px;
+        width: 150px;
+        border: 2px black solid;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .btn {
+        width: 80px;
+        padding: 4px;
+        color: black;
+        background: red;
+        border: 2px red solid;
+        border-radius: 4px;
+
+        cursor: pointer;
+      }
+      #area {
+        margin-left: 40px;
+      }
+      #volume {
+        margin-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset class="cone-field">
+      <legend>Enter Cone Properties:</legend>
+      <br />
+      <label for="radius">Enter radius:</label>
+      <input
+        class="input-field"
+        type="text"
+        name="radius"
+        id="radius"
+        required
+      />
+      <br />
+      <br />
+      <label for="height">Enter height:</label>
+      <input
+        class="input-field"
+        type="text"
+        name="height"
+        id="height"
+        required
+      />
+      <br /><br />
+      <input class="btn" type="button" id="area" value="Area" />
+      <input class="btn" type="button" value="Volume" id="volume" />
+      <br />
+      <h3 id="result"></h3>
+      </p>
+      <section>&copy; designed by Gulam Rabbani</section>
+      <section>USN: 418CS099</section>
+      <script>
+        var radius = document.getElementById("radius").value;
+        var height = document.getElementById("height").value;
+        document
+          .getElementById("area")
+          .addEventListener("dblclick", function () {
+            document.getElementById("result").innerHTML =
+              "Area of cone: " +
+              (3.142 * radius * radius * (height / 3)).toFixed(2);
+          });
+        document
+          .getElementById("volume")
+          .addEventListener("mouseover", function () {
+            document.getElementById("result").innerHTML =
+              "Volume of cone: " +
+              (3.142 * radius * (height * height + radius * radius)).toFixed(2);
+          });
+      </script>
+    </fieldset>
+  </body>
+</html>

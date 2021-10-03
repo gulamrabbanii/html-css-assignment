@@ -1,0 +1,197 @@
+<!-- 
+    Program includes following Document
+        ...Participant Name(text)
+        ...College Name(text)
+        ...Branch(dropdown list)
+        ...Programme(4 programes in check-box)
+        ...No of days(list)
+        ...Gender(radio btn)
+        ...DoB(date) 
+        ...Type of member(ie. internal or external member -> radio btn)
+        
+    and includes Javascript for
+        Display the result of total charge for the programmes  by calculating  the criteria using javascript
+            ....(Criteria for charge of  Internal member is  C# = Rs1000/day,  and C++ =1750/day, C=1500/day, Java=1250/day) in the next page  in an enhanced and heighted text
+            ...(Criteria for charge of  External member is  C# = Rs1500/day,  and C++ =2000/day, C=1750/day, Java=1500/day) in the next page  in an enhanced and highlighted text
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./getPrice.js"></script>
+    <title>Online Course</title>
+
+    <style type="text/css">
+      body {
+        background: black;
+        font-family: monospace;
+        font-size: 1em;
+        color: white;
+      }
+      input {
+        width: 160px;
+        padding: 3px 5px;
+        border-radius: 2px;
+        border: 1px solid grey;
+      }
+      #wrapper {
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      label {
+        font-weight: bold;
+        position: relative;
+        top: 0.5em;
+        width: 200px;
+        float: left;
+      }
+
+      .form-ele {
+        margin-bottom: 10px;
+      }
+      .checkbox-label {
+        position: relative;
+        top: 1px;
+        width: 20px;
+      }
+      .checkbox-list {
+        margin-left: 20px;
+      }
+      .radio-btn {
+        position: relative;
+        width: auto;
+        margin: 10px;
+      }
+
+      .output-clr {
+        color: red;
+      }
+
+      .days {
+        color: white;
+        font-style: italic;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="form-ele">
+        <label for="participant">Participant Name:</label>
+        <input type="text" id="participant" placeholder="eg. Gulam Rabbani" />
+      </div>
+      <div class="form-ele">
+        <label for="college_name">College Name:</label>
+        <input
+          type="text"
+          id="college_name"
+          placeholder="eg. Alva's Institue of Engineering and Technology"
+        />
+      </div>
+      <div class="form-ele">
+        <label for="branchs">Choose your Branch:</label>
+        <select id="branchs">
+          <option value="select" selected>Select a branch</option>
+          <option value="cse">Computer Science Engineering</option>
+          <option value="ece">Electronics and Communication Engineering</option>
+          <option value="me">Mechanical Engineering</option>
+          <option value="civil">Civil Engineering</option>
+        </select>
+      </div>
+      <h3 style="margin-bottom: 4px">Programme:</h3>
+      <div class="form-ele checkbox-list">
+        <input
+          type="checkbox"
+          data-extn-price="1500"
+          data-intrn-price="1000"
+          id="C#"
+        />
+        <label class="checkbox-label" for="C#">C#:</label>
+      </div>
+      <div class="form-ele checkbox-list">
+        <input
+          type="checkbox"
+          data-extn-price="2000"
+          data-intrn-price="1750"
+          id="C++"
+        />
+        <label class="checkbox-label" for="C++">C++:</label>
+      </div>
+      <div class="form-ele checkbox-list">
+        <input
+          type="checkbox"
+          data-extn-price="1750"
+          data-intrn-price="1500"
+          id="C"
+        />
+        <label class="checkbox-label" for="C">C:</label>
+      </div>
+      <div class="form-ele checkbox-list">
+        <input
+          type="checkbox"
+          data-extn-price="1500"
+          data-intrn-price="1250"
+          id="java"
+        />
+        <label class="checkbox-label" for="java">Java:</label>
+      </div>
+      <h3>Above courses are available for</h3>
+      <ul>
+        <li>7 days</li>
+        <li>15 days</li>
+        <li>30 days</li>
+      </ul>
+      <label for="gender">Gender:</label>
+      <input class="radio-btn" type="radio" name="gender" id="male" />Male
+      <input class="radio-btn" type="radio" name="gender" id="female" />Female
+      <div class="form-ele">
+        <label for="birthday">Date of birth:</label>
+        <input type="date" id="birthday" />
+      </div>
+      <div class="form-ele">
+        <label for="member">Type of member:</label>
+        <input
+          class="radio-btn"
+          type="radio"
+          name="member"
+          value="internal"
+        />Internal
+        <input
+          class="radio-btn"
+          type="radio"
+          name="member"
+          value="external"
+        />External
+      </div>
+      <input
+        type="button"
+        style="cursor: pointer"
+        onClick="getPrice()"
+        value="Total charge"
+      />
+      <br /><br />
+      <h1 style="margin-bottom: -10px">The total charge for programmes:</h1>
+      <br />
+      <h4 class="output-clr">
+        For 7 days:
+        <span id="7-days" class="days"></span>
+      </h4>
+      <h4 class="output-clr">
+        For 15 days:
+        <span id="15-days" class="days"></span>
+      </h4>
+      <h4 class="output-clr">
+        For 30 days:
+        <span id="30-days" class="days"></span>
+      </h4>
+      <p>
+        ---------------------------------------------------------------------------
+      </p>
+      <section>&copy; designed by Gulam Rabbani</section>
+      <section>USN: 418CS099</section>
+    </div>
+  </body>
+</html>
